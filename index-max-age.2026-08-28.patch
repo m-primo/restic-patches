@@ -1,0 +1,15 @@
+diff --git a/internal/repository/index/index.go b/internal/repository/index/index.go
+index abd8eda54..aa57da964 100644
+--- a/internal/repository/index/index.go
++++ b/internal/repository/index/index.go
+@@ -93,8 +93,8 @@ func (idx *Index) Final() bool {
+ }
+
+ const (
+-       indexMaxBlobs = 50000
+-       indexMaxAge   = 10 * time.Minute
++       indexMaxBlobs = 1000
++       indexMaxAge   = 20 * time.Second
+ )
+
+ // Full returns true iff the index is "full enough" to be saved as a preliminary index.
