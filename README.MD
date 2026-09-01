@@ -14,16 +14,21 @@ I followed [this guide](https://restic.readthedocs.io/en/v0.19.1/developer_infor
 
 If you're going to use this patch, please check all files yourself and review them.
 
+## Note
+
+The scripts were made to run on Linux, however you can simply adjust the setup script on Windows or any other OS (it's simple).
+
 ## Walkthrough
 
 The setup script will:
+
 1. Download `Go` version `1.26.4` into `/usr/local/go-v1.26.4` (if this directory already exist in your system it will force remove it first before downloading).
 2. Extend the `$PATH` to include `/usr/local/go-v1.26.4/go/bin`.
 3. Set the `$GOPATH` to `/var/local/go-v1.26.4-build` (if it already exist it will override it temporarily for the script scope only -this won't affect other tools/systems using this go path-).
 4. Download the `restic` source code version `0.19.1` into `/usr/local/restic-v0.19.1` (if this directory already exist in your system it will force remove it first before downloading).
 5. Copy and apply the patch file into the restic source code directory.
 
-Now after a successful setup, you can run the build files, which basically just runs the `go build` command with specific flags.
+The build commands will simply run the `go build` command with specific flags.
 
 ## Prerequisites
 
@@ -67,13 +72,9 @@ Linux:
 
 You should always build for Linux to test it out by simply running some restic command like `./restic_linux_amd64 version`.
 
-The build commands will result in two files (self-contained binary):
+The build commands will result in two files (self-contained binaries):
 
 ```plain
 restic_linux_amd64
 restic_windows_amd64.exe
 ```
-
-## Note
-
-This setup was made to run on Linux, however you can simply adjust the setup script on Windows or any other OS (it's simple).
